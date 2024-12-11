@@ -8,23 +8,6 @@ from reportlab.pdfgen import canvas
 from datetime import date, timedelta
 from dotenv import load_dotenv
 
-### DONE
-
-### If vendor name does not exist but there is still a transaction, do not skip it, just make the vendor name "unknown"
-### Add a section for input after the pdf is generated to look over it and get confirmation before the send 
-### Change config file to have companies in a list and then run all productions for that company 
-### Add an excluded section at the end 
-### Producer_firm_tax_info for billing information 
-### Reach out to Charlie/Matt to help me create a .env file for url and connection link stuff to supabase 
-### Add production name when asking if they want to use Checkbook
-### Manually add the Roll Credits billing info 
-### Get rid of {} in productions file and then make them just strings 
-### Try for an automatic delete after the production's invoice is created
-### Change "DETAILS" to production
-### Change the subject from invoice number to "Roll Credits invoice to {production name}"
-
-### NEEDS TO BE DONE 
-
 
 def main() -> None:
     f = open('config.json', encoding="utf-8")
@@ -140,7 +123,7 @@ def create_pdf(payable_metadata, invoice_data, email, invoiceTotal, element, pro
     c.setFillColorRGB(0,0,0) 
     c.setLineWidth(1)  # 1-point widths
 
-    image_path = "/Users/mattlevis/Invoice Docs/RC-Invoice.jpg" 
+    image_path = "RC-Invoice.jpg" 
     c.drawImage(image_path, 60, 740, width=210, height=75)  # Adjust position and size
     c.line(60, 740, 545, 740) #H
 
@@ -180,7 +163,7 @@ def create_pdf(payable_metadata, invoice_data, email, invoiceTotal, element, pro
         z = "None Provided"
         city = "None Provided"
         state = "None Provided"
-    if invoice_data == None and element['company'] == 'Open Range':
+    if invoice_data == None and element['company'] == 'OR':
         street = "3114 NE 36th Ave"
         z = "97212"
         city = "Portland"
