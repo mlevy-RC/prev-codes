@@ -10,7 +10,7 @@ const dynamoDB = new AWS.DynamoDB.DocumentClient();
  */
 async function queryCompanyNames() {
     const params = {
-        TableName: 'Portals-dev', 
+        TableName: 'PD', 
         ProjectionExpression: '#n', // Use a placeholder for the reserved keyword
         ExpressionAttributeNames: {
             '#n': 'name' // Map the placeholder to the actual attribute name
@@ -40,8 +40,8 @@ async function compareCompanyNames() {
         const sheets = google.sheets({ version: 'v4', auth });
 
         // Spreadsheet ID and range for the names
-        const spreadsheetId1 = '173hddSMo0jw4z1vSmFGool3ZHkoImEWnMBbKpEeOtMY'; 
-        const range1 = 'A1:A';  
+        const spreadsheetId1 = 'SSID'; 
+        const range1 = 'range';  
 
         // Fetch the names from the Missing Merchants spreadsheet
         const response1 = await sheets.spreadsheets.values.get({
@@ -58,7 +58,7 @@ async function compareCompanyNames() {
         let JBfilter = JBmissing.filter(element => !element.includes("Card Linked"));
 
         // Fetching the names from the Portal Mapping spreadsheet
-        const spreadsheetId = '1AHjv0J9nIjtLBehsypDVOkM4L1Z4PauMv43fJ7QXngc';
+        const spreadsheetId = 'SSID2';
         const range = 'Sheet1';
         const response = await sheets.spreadsheets.values.get({
             spreadsheetId,
