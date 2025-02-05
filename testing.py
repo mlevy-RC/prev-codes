@@ -1,3 +1,6 @@
+# Main function of this code is an invoicing system. The written Python code searches
+# a SQL database to find all charges for a given project that the client is working on. 
+
 from decimal import *
 from prisma import Prisma
 import requests
