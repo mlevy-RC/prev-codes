@@ -1,3 +1,9 @@
+/* Main function of this code is to cross check the existing companies in the databse 
+   with the new ones found in the current run of the scrapper. The check looks for 
+   common variations of the company name to reduce the likelihood of duplicates forming
+   in the stored database values. 
+*/
+"""
 const { google } = require('googleapis');
 const AWS = require('aws-sdk');
 const fs = require('fs')
